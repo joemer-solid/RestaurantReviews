@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestaurantReviewsService.DataAdapters;
 using RestaurantReviewsService.DomainModels;

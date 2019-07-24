@@ -8,7 +8,5 @@ namespace RestaurantReviewsService.DataAdapters
         IList<UserDM> GetAllUsers();
 
         UserDM GetUserByName(string firstName, string lastName);
-
-        int AddNewRestaurant(UserDM restaurant);
     }
 }

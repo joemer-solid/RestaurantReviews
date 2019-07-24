@@ -7,7 +7,7 @@ namespace RestaurantReviewServiceRepository.Operations
 {
     public interface ISelectAllUsersOperation : IRepositoryOperation<IList<User>, UsersRepository> { }
 
-    public class SelectAllUsersOperation : ISelectAllUsersOperation, ISelectAllRepositoryOperation<IList<User>>
+    public sealed class SelectAllUsersOperation : ISelectAllUsersOperation, ISelectAllRepositoryOperation<IList<User>>
     {
         public IList<User> SelectAll()
         {

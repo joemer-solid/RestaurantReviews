@@ -11,12 +11,7 @@ using System.Linq;
 namespace RestaurantReviewsService.DataAdapters
 {
     public sealed class UsersDataAdapter : IUsersDataAdapter
-    {
-        int IUsersDataAdapter.AddNewRestaurant(UserDM restaurant)
-        {
-            throw new NotImplementedException();
-        }
-
+    {    
         IList<UserDM> IUsersDataAdapter.GetAllUsers()
         {
             IModelBuilder<UserDM, User> modelBuilder = new UserDomainModelBuilder();

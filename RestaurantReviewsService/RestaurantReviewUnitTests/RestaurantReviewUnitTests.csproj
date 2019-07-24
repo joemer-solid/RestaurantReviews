@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="RestaurantsDataAdapterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserReviewsDataAdapterTests.cs" />
     <Compile Include="UsersDataAdapterTests.cs" />
   </ItemGroup>
   <ItemGroup>

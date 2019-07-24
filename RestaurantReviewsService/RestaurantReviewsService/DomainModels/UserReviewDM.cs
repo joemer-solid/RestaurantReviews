@@ -1,6 +1,11 @@
-﻿namespace RestaurantReviewServiceRepository.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace RestaurantReviewsService.DomainModels
 {
-    public sealed class UserReview : EntityModelBase
+    public sealed class UserReviewDM
     {
         public int Id { get; set; }
 

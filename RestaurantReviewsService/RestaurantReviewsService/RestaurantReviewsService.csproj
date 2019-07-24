@@ -158,17 +158,22 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataAdapters\IRestaurantsDataAdapter.cs" />
+    <Compile Include="DataAdapters\IUserReviewsDataAdapter.cs" />
     <Compile Include="DataAdapters\IUsersDataAdapter.cs" />
     <Compile Include="DataAdapters\RestaurantsDataAdapter.cs" />
+    <Compile Include="DataAdapters\UserReviewsDataAdapter.cs" />
     <Compile Include="DataAdapters\UsersDataAdapter.cs" />
     <Compile Include="DomainModels\RestaurantDM.cs" />
     <Compile Include="DomainModels\UserDM.cs" />
+    <Compile Include="DomainModels\UserReviewDM.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ModelBuilders\DataEntityModelBuilders\RestaurantDomainEntityModelBuilder.cs" />
+    <Compile Include="ModelBuilders\DataEntityModelBuilders\UserReviewDomainEntityModelBuilder.cs" />
     <Compile Include="ModelBuilders\DomainModelBuilders\RestaurantDomainModelBuilder.cs" />
     <Compile Include="ModelBuilders\DomainModelBuilders\UserDomainModelBuilder.cs" />
+    <Compile Include="ModelBuilders\DomainModelBuilders\UserReviewDomainModelBuilder.cs" />
     <Compile Include="ModelBuilders\IModelBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
