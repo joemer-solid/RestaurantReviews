@@ -1,0 +1,17 @@
+ SELECT RR.*, ST.Name FROM Restaurants RR INNER JOIN STATES ST ON RR.StateREF = ST.Id ORDER BY RR.NAME ASC
+
+
+
+INSERT INTO States(Abbreviation,Name)Values('PA', 'Pennsylvania')
+INSERT INTO States(Abbreviation,Name)Values('OH', 'Ohio')
+INSERT INTO States(Abbreviation,Name)Values('MA', 'Massachusetts')
+
+INSERT INTO Restaurants(Name,StreetAddress,Overview,City,StateREF)
+VALUES('Mama Rosa', '123 Old Butler Plank Road', 'Homemade Italian Cuisine from Zia Rosa's recipes', 'Butler', 1)
+
+INSERT INTO Restaurants(Name,StreetAddress,Overview,City,StateREF)
+VALUES('La Paloma', '123 Newport Avenue', 'The very best Tex-Mex in Town!', 'Wollaston', 3)
+
+
+
+
