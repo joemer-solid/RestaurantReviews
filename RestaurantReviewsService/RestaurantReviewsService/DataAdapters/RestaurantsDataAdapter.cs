@@ -2,17 +2,25 @@
 using RestaurantReviewServiceRepository.Operations;
 using RestaurantReviewsService.DomainModels;
 using RestaurantReviewsService.ModelBuilders;
+using RestaurantReviewsService.ModelBuilders.DataEntityModelBuilders;
 using RestaurantReviewsService.ModelBuilders.DomainModelBuilders;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace RestaurantReviewsService.DataAdapters
 {
     public sealed class RestaurantsDataAdapter : IRestaurantsDataAdapter
     {
-      
+        int IRestaurantsDataAdapter.AddNewRestaurant(RestaurantDM restaurant)
+        {
+            IModelBuilder<Restaurant, RestaurantDM> domainToEntityModelBuilder = new RestaurantDomainEntityModelBuilder();
+            AddNewRestaurantOperation addNewRestaurantOperation = new AddNewRestaurantOperation();
+           
+            Restaurant restaurantDataEntity = domainToEntityModelBuilder.Build(restaurant);
+
+            return addNewRestaurantOperation.AddNewRestaurant(restaurantDataEntity);
+        }
+
         IList<RestaurantDM> IRestaurantsDataAdapter.GetAllRestaurants()
         {
             IModelBuilder<RestaurantDM, Restaurant> modelBuilder = new RestaurantDomainModelBuilder();

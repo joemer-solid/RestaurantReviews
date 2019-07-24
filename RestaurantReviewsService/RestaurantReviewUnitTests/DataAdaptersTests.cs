@@ -52,5 +52,39 @@ namespace RestaurantReviewUnitTests
                 Assert.Fail(e.Message);
             }
         }
+
+        [TestMethod]
+        [TestCategory(_testCategory)]
+        public void WillGenerateExceptionOnDuplicateRestaurantAddAttempt()
+        {
+          
+            RestaurantDM duplicateAddAttempt = new RestaurantDM
+            {
+                City = "Butler",
+                Name = "Mama Rosa",
+                Overview = "Italian Cuisine From Old Country Recipes",
+                StateId = 1,
+                StreetAddress = "123 Old Butler Plank Road"
+            };
+
+            int addResult = 0;
+
+            try
+            {
+                IRestaurantsDataAdapter restaurantsDataAdapter = new RestaurantsDataAdapter();
+
+                addResult = restaurantsDataAdapter.AddNewRestaurant(duplicateAddAttempt);
+
+                Assert.Fail();
+            }
+            catch(AssertFailedException e)
+            {
+                Assert.Fail(e.Message);
+            }
+            catch(Exception e)
+            {
+                Assert.IsTrue(e is Exception);
+            }
+        }
     }
 }

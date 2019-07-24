@@ -18,7 +18,7 @@ namespace RestaurantReviewServiceRepository.Abstract
 
         void Save(T1 entity);
 
-        void Insert(T1 entity);
+        T2 Insert(T1 entity);
 
         void Delete(T1 entity);
     }

@@ -5,9 +5,6 @@ using RestaurantReviewServiceRepository.EntityModelBuilders;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestaurantReviewServiceRepository.Concrete
 {
@@ -18,9 +15,33 @@ namespace RestaurantReviewServiceRepository.Concrete
             throw new NotImplementedException();
         }
 
-        void IDbRepository<EntityModelBase, object>.Insert(EntityModelBase entity)
+        object IDbRepository<EntityModelBase, object>.Insert(EntityModelBase entity)
         {
-            throw new NotImplementedException();
+            ISqlLiteCommandBuilder<SQLiteCommand> restaurantAddCommandBuilder = null;
+            SQLiteCommand command = null;
+            int commandResult = 0;
+
+            try
+            {
+                using (SqlLiteDbConnection connection = new SqlLiteDbConnection())
+                {
+                    restaurantAddCommandBuilder = new Restaurant_AddCommand(connection, entity as Restaurant);
+
+                    command = restaurantAddCommandBuilder.Build();
+
+                    commandResult = command.ExecuteNonQuery();
+                }
+            }
+            catch (SQLiteException e)
+            {
+                throw new Exception(string.Format("SQLite Exception {0} {1}", e.ErrorCode, e.Message));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return (object)commandResult;
         }
 
         void IDbRepository<EntityModelBase, object>.Save(EntityModelBase entity)
@@ -35,7 +56,6 @@ namespace RestaurantReviewServiceRepository.Concrete
             SQLiteDataReader reader = null;          
             IEntityModelBuilder<IList<Restaurant>, SQLiteDataReader> restaurantsDataEntitiesBuilder = null;
             IList<Restaurant> results = null;
-
 
             using (SqlLiteDbConnection connection = new SqlLiteDbConnection())
             {

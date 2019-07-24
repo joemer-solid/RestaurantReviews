@@ -14,9 +14,10 @@ namespace RestaurantReviewServiceRepository.EntityModelBuilders
             const int STREET_ADDR = 2;
             const int OVERVIEW = 3;
             const int CITY = 4;
+            const int STATE_ID = 5;
             const int STATE = 6;
-            
-            if(p != null && p.HasRows)
+
+            if (p != null && p.HasRows)
             {
                 while (p.Read())
                 {
@@ -28,6 +29,7 @@ namespace RestaurantReviewServiceRepository.EntityModelBuilders
                                 StreetAddress = p.GetString(STREET_ADDR),
                                 City = p.GetString(CITY),
                                 Overview = p.GetString(OVERVIEW),
+                                StateIdRef = p.GetInt32(STATE_ID),
                                 State = p.GetString(STATE)
                             }
                         );

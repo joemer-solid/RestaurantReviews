@@ -17,6 +17,8 @@ namespace RestaurantReviewsService.DomainModels
 
         public string State { get; set; }
 
+        public int StateId { get; set; }
+
         public string Overview { get; set; }
     }
 }

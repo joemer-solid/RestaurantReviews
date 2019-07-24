@@ -12,5 +12,7 @@ namespace RestaurantReviewsService.DataAdapters
         IList<RestaurantDM> GetAllRestaurants();
 
         IList<RestaurantDM> GetRestaurantsByCity(string cityName);
+
+        int AddNewRestaurant(RestaurantDM restaurant);
     }
 }

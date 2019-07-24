@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 namespace RestaurantReviewServiceRepository.Operations
 {
-    public interface ISelectAllRestaurantsOperation : IRepositoryOperation<IList<Restaurant>, RestaurantsRepository> { }
-    
+    public interface ISelectAllRestaurantsOperation : IRepositoryOperation<IList<Restaurant>, RestaurantsRepository> { }    
 
 
     public sealed class SelectAllRestaurantsOperation : ISelectAllRestaurantsOperation

@@ -18,6 +18,8 @@ namespace RestaurantReviewServiceRepository.Entities
 
         public string State { get; set; }
 
+        public int StateIdRef { get; set; }
+
         public string Overview { get; set; }
 
      
