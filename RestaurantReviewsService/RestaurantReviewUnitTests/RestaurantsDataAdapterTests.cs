@@ -7,7 +7,7 @@ using RestaurantReviewsService.DomainModels;
 namespace RestaurantReviewUnitTests
 {
     [TestClass]
-    public class DataAdaptersTests
+    public class RestaurantsDataAdapterTests
     {
         private const string _testCategory = "DataAdapterTests";
 
@@ -55,9 +55,45 @@ namespace RestaurantReviewUnitTests
 
         [TestMethod]
         [TestCategory(_testCategory)]
-        public void WillGenerateExceptionOnDuplicateRestaurantAddAttempt()
+        public void CanAddNewNonDuplicateRestaurantRecord()
         {
-          
+            Assert.IsTrue(1 == 1);
+            return;
+
+            // TODO: Implement a mocking framework and strategy, ideally testing the command and parameters
+            // etc. - stopping short of executing the command.
+
+            #region to be mocked
+
+            //RestaurantDM nonDuplicateRestaurant = new RestaurantDM
+            //{
+            //    City = "Columbus",
+            //    Name = "A Common Table",
+            //    Overview = "Gourment Sandwiches",
+            //    StateId = 2,
+            //    StreetAddress = "1455 High Street"
+            //};
+
+            //try
+            //{
+            //    IRestaurantsDataAdapter restaurantsDataAdapter = new RestaurantsDataAdapter();
+
+            //    int addResult = restaurantsDataAdapter.AddNewRestaurant(nonDuplicateRestaurant);
+
+            //    Assert.IsTrue(addResult > 0);
+            //}           
+            //catch (Exception e)
+            //{
+            //    Assert.Fail(e.Message);
+            //}
+
+            #endregion
+        }
+
+        [TestMethod]
+        [TestCategory(_testCategory)]
+        public void WillGenerateExceptionOnDuplicateRestaurantAddAttempt()
+        {          
             RestaurantDM duplicateAddAttempt = new RestaurantDM
             {
                 City = "Butler",
@@ -67,14 +103,11 @@ namespace RestaurantReviewUnitTests
                 StreetAddress = "123 Old Butler Plank Road"
             };
 
-            int addResult = 0;
-
             try
             {
                 IRestaurantsDataAdapter restaurantsDataAdapter = new RestaurantsDataAdapter();
 
-                addResult = restaurantsDataAdapter.AddNewRestaurant(duplicateAddAttempt);
-
+                int addResult = restaurantsDataAdapter.AddNewRestaurant(duplicateAddAttempt);
                 Assert.Fail();
             }
             catch(AssertFailedException e)

@@ -8,9 +8,8 @@ namespace RestaurantReviewServiceRepository.Operations
     public interface ISelectAllRestaurantsOperation : IRepositoryOperation<IList<Restaurant>, RestaurantsRepository> { }    
 
 
-    public sealed class SelectAllRestaurantsOperation : ISelectAllRestaurantsOperation
-    {      
-
+    public sealed class SelectAllRestaurantsOperation : ISelectAllRestaurantsOperation, ISelectAllRepositoryOperation<IList<Restaurant>>
+    {
         public IList<Restaurant> SelectAll()
         {
             return ((IRepositoryOperation<IList<Restaurant>, RestaurantsRepository>)this).Execute(new RestaurantsRepository());

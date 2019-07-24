@@ -4,6 +4,7 @@ using RestaurantReviewServiceRepository.Entities;
 using RestaurantReviewServiceRepository.EntityModelBuilders;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 
 namespace RestaurantReviewServiceRepository.Concrete
@@ -17,19 +18,22 @@ namespace RestaurantReviewServiceRepository.Concrete
 
         object IDbRepository<EntityModelBase, object>.Insert(EntityModelBase entity)
         {
-            ISqlLiteCommandBuilder<SQLiteCommand> restaurantAddCommandBuilder = null;
-            SQLiteCommand command = null;
             int commandResult = 0;
+            SQLiteTransaction transaction = null;
 
             try
             {
                 using (SqlLiteDbConnection connection = new SqlLiteDbConnection())
                 {
-                    restaurantAddCommandBuilder = new Restaurant_AddCommand(connection, entity as Restaurant);
+                    ISqlLiteCommandBuilder<SQLiteCommand> restaurantAddCommandBuilder = new Restaurant_AddCommand(connection, entity as Restaurant);
 
-                    command = restaurantAddCommandBuilder.Build();
+                    SQLiteCommand command = restaurantAddCommandBuilder.Build();
 
-                    commandResult = command.ExecuteNonQuery();
+                    using (transaction = connection.Connection.BeginTransaction(IsolationLevel.Serializable))
+                    {
+                        commandResult = command.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
                 }
             }
             catch (SQLiteException e)
@@ -38,7 +42,12 @@ namespace RestaurantReviewServiceRepository.Concrete
             }
             catch (Exception e)
             {
+                transaction.Rollback();
                 throw e;
+            }
+            finally
+            {
+                if(transaction != null) { transaction.Dispose(); }
             }
 
             return (object)commandResult;
@@ -51,21 +60,17 @@ namespace RestaurantReviewServiceRepository.Concrete
 
         IEnumerable<EntityModelBase> IDbRepository<EntityModelBase, object>.SelectAll()
         {
-            ISqlLiteCommandBuilder<SQLiteCommand> selectAllRestaurantsCommandBuilder = null;
-            SQLiteCommand command = null;
-            SQLiteDataReader reader = null;          
-            IEntityModelBuilder<IList<Restaurant>, SQLiteDataReader> restaurantsDataEntitiesBuilder = null;
             IList<Restaurant> results = null;
 
             using (SqlLiteDbConnection connection = new SqlLiteDbConnection())
             {
-                selectAllRestaurantsCommandBuilder = new Restaurants_SelectAllCommand(connection);
+                ISqlLiteCommandBuilder<SQLiteCommand> selectAllRestaurantsCommandBuilder = new Restaurants_SelectAllCommand(connection);
 
-                command = selectAllRestaurantsCommandBuilder.Build();
+                SQLiteCommand command = selectAllRestaurantsCommandBuilder.Build();
 
-                reader = command.ExecuteReader();
+                SQLiteDataReader reader = command.ExecuteReader();
 
-                restaurantsDataEntitiesBuilder = new RestaurantsDataEntitiesBuilder();
+                IEntityModelBuilder<IList<Restaurant>, SQLiteDataReader> restaurantsDataEntitiesBuilder = new RestaurantsDataEntitiesBuilder();
 
                 results = restaurantsDataEntitiesBuilder.Build(reader);
 
