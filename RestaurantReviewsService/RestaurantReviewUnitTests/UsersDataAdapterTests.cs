@@ -56,6 +56,5 @@ namespace RestaurantReviewUnitTests
                 Assert.Fail(e.Message);
             }
         }
-
     }
 }
