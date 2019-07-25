@@ -1,5 +1,6 @@
 ﻿using RestaurantReviewService.Entities;
 using RestaurantReviewService.Operations;
+using RestaurantReviewServiceRepository.Operations;
 using RestaurantReviewsService.DomainModels;
 using RestaurantReviewsService.ModelBuilders;
 using RestaurantReviewsService.ModelBuilders.DataEntityModelBuilders;
@@ -14,7 +15,13 @@ namespace RestaurantReviewsService.DataAdapters
     {
         int IUserReviewsDataAdapter.AddNewUserReview(UserReviewDM userReviewDM)
         {
-            throw new NotImplementedException();
+            IModelBuilder<UserReview, UserReviewDM> domainToEntityModelBuilder = new UserReviewDomainEntityModelBuilder();
+
+            AddNewUserReviewOperation addNewUserReviewOperation = new AddNewUserReviewOperation();
+
+            UserReview userReviewDataEntity = domainToEntityModelBuilder.Build(userReviewDM);
+
+            return addNewUserReviewOperation.AddNewUserReview(userReviewDataEntity);            
         }
 
         int IUserReviewsDataAdapter.DeleteExistingUserReview(UserReviewDM userReviewDM)

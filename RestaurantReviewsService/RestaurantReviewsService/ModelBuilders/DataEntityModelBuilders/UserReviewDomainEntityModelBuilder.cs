@@ -14,6 +14,8 @@ namespace RestaurantReviewsService.ModelBuilders.DataEntityModelBuilders
                 RatingsLevel = p.RatingsLevel,
                 RatingsRef = p.RatingsRef,
                 UserIdRef = p.UserIdRef,
+                Title = p.Title,
+                Id = p.Id,
                 RestaurantIdRef = p.RestaurantIdRef
             };
         }

@@ -1,9 +1,5 @@
-﻿using System;
+﻿using RestaurantReviewsService.ViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RestaurantReviewsService.ViewModels;
 
 namespace RestaurantReviewsService.PortServices
 {
@@ -12,6 +8,8 @@ namespace RestaurantReviewsService.PortServices
         IList<RestaurantViewModel> GetAllRestaurants();
 
         IList<RestaurantViewModel> GetRestaurantReviewsByCity(string cityName);
+
+        void PostRestaurantReview(UserReviewViewModel userReviewViewModel);
     }
 }
 

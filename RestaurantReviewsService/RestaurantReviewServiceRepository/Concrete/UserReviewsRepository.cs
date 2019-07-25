@@ -41,7 +41,39 @@ namespace RestaurantReviewService.Concrete
 
         object IDbRepository<EntityModelBase, object>.Insert(EntityModelBase entity)
         {
-            throw new NotImplementedException();
+            int commandResult = 0;
+            SQLiteTransaction transaction = null;
+
+            try
+            {
+                using (SqlLiteDbConnection connection = new SqlLiteDbConnection())
+                {
+                    ISqlLiteCommandBuilder<SQLiteCommand> userReviewAddCommandBuilder = new UserReview_AddCommand(connection, entity as UserReview);
+
+                    SQLiteCommand command = userReviewAddCommandBuilder.Build();
+
+                    using (transaction = connection.Connection.BeginTransaction(IsolationLevel.Serializable))
+                    {
+                        commandResult = command.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                throw new Exception(string.Format("SQLite Exception {0} {1}", e.ErrorCode, e.Message));
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                throw e;
+            }
+            finally
+            {
+                if (transaction != null) { transaction.Dispose(); }
+            }
+
+            return (object)commandResult;
         }
 
         void IDbRepository<EntityModelBase, object>.Save(EntityModelBase entity)

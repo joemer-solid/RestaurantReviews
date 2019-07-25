@@ -8,6 +8,7 @@ using RestaurantReviewsService.DataAdapters;
 using RestaurantReviewsService.DomainModels;
 using RestaurantReviewsService.ModelBuilders;
 using RestaurantReviewsService.ModelBuilders.ViewModelBuilders;
+using RestaurantReviewsService.ModelBuilders.DomainModelBuilders;
 
 namespace RestaurantReviewsService.PortServices
 {
@@ -16,6 +17,8 @@ namespace RestaurantReviewsService.PortServices
         private IRestaurantsDataAdapter _restaurantsDataAdapter;
         private IUserReviewsDataAdapter _userReviewsDataAdapter;
         private IUsersDataAdapter _usersDataAdapter;
+
+        #region Constructors
 
         public RestaurantPortService()
         {
@@ -28,6 +31,8 @@ namespace RestaurantReviewsService.PortServices
         {
             _restaurantsDataAdapter = restaurantsDataAdapter;
         }
+
+        #endregion
 
         public IList<RestaurantViewModel> GetAllRestaurants()
         {
@@ -82,6 +87,14 @@ namespace RestaurantReviewsService.PortServices
             }
 
             return results;
+        }
+
+        public void PostRestaurantReview(UserReviewViewModel userReviewViewModel)
+        {
+            IModelBuilder<UserReviewDM, UserReviewViewModel> userReviewDomainModelBuilder =
+                new UserReviewDomainModelBuilder();
+
+            _userReviewsDataAdapter.AddNewUserReview(userReviewDomainModelBuilder.Build(userReviewViewModel));
         }
     }
 }
