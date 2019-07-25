@@ -14,6 +14,7 @@ namespace RestaurantReviewsService.ModelBuilders.DomainModelBuilders
                 Name = p.Name,
                 Overview = p.Overview,
                 State = p.State,
+                StateId = p.StateIdRef,
                 StreetAddress = p.StreetAddress
             };
         }

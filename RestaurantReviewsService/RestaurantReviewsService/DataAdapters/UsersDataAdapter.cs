@@ -31,6 +31,20 @@ namespace RestaurantReviewsService.DataAdapters
             return results;
         }
 
+        UserDM IUsersDataAdapter.GetUserById(int userId)
+        {
+            UserDM results = null;
+
+            var filteredResults = ((IUsersDataAdapter)this).GetAllUsers().Where(x => x.Id == userId).ToList<UserDM>();
+
+            if (filteredResults != null && filteredResults.Count > 0)
+            {
+                results = filteredResults.SingleOrDefault<UserDM>();
+            }
+
+            return results;
+        }
+
         UserDM IUsersDataAdapter.GetUserByName(string firstName, string lastName)
         {
             UserDM results = null;

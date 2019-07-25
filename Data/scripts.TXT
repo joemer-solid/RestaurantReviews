@@ -36,11 +36,11 @@ INSERT INTO Users(FirstName,LastName,Alias,City,StateRef)VALUES('Dale','Cooper',
 INSERT INTO Users(FirstName,LastName,Alias,City,StateRef)VALUES('Douglas','Jones','Dougie','Las Vegas',6)
 
 
-INSERT INTO Ratings(Level,Description)VALUES('Excellent', 5);
-INSERT INTO Ratings(Level,Description)VALUES('Very Good', 4);
-INSERT INTO Ratings(Level,Description)VALUES('Average', 3);
-INSERT INTO Ratings(Level,Description)VALUES('Below Average', 2);
-INSERT INTO Ratings(Level,Description)VALUES('Poor', 1);
+INSERT INTO Ratings(Level,Description)VALUES(5,'Excellent');
+INSERT INTO Ratings(Level,Description)VALUES(4,'Very Good');
+INSERT INTO Ratings(Level,Description)VALUES(3,'Average');
+INSERT INTO Ratings(Level,Description)VALUES(2,'Below Average');
+INSERT INTO Ratings(Level,Description)VALUES(1,'Poor');
 
 INSERT INTO UserReviews(UserIdREF, RestaurantIdREF, Title, Comments, RatingsREF)VALUES(2,3,'Huckleberry Pie is Aces', 'Norma runs a friendly place with good simple food', 2);
 

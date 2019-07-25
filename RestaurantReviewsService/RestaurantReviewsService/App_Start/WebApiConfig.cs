@@ -19,6 +19,12 @@ namespace RestaurantReviewsService
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApiWithParameters", 
+                routeTemplate: "api/{controller}/{name}",
+                new {name = RouteParameter.Optional }
+                );
         }
     }
 }

@@ -15,11 +15,13 @@ namespace RestaurantReviewsService.PortServices
     {
         private IRestaurantsDataAdapter _restaurantsDataAdapter;
         private IUserReviewsDataAdapter _userReviewsDataAdapter;
+        private IUsersDataAdapter _usersDataAdapter;
 
         public RestaurantPortService()
         {
             _restaurantsDataAdapter = new RestaurantsDataAdapter();
             _userReviewsDataAdapter = new UserReviewsDataAdapter();
+            _usersDataAdapter = new UsersDataAdapter();
         }
 
         public RestaurantPortService(IRestaurantsDataAdapter restaurantsDataAdapter)
@@ -65,6 +67,11 @@ namespace RestaurantReviewsService.PortServices
                 foreach (RestaurantDM restaurantDM in restaurantDomainModelsList)
                 {
                     IList<UserReviewDM> usersReviewsDomainModelList = _userReviewsDataAdapter.GetUserReviewsForRestaurant(restaurantDM);
+
+                    foreach(UserReviewDM userReviewDM in usersReviewsDomainModelList)
+                    {
+                        userReviewDM.User = _usersDataAdapter.GetUserById(userReviewDM.UserIdRef);
+                    }
 
                     results.Add(restaurantViewModelBuilder.Build(new RestaurantVMBuilderParams
                     {

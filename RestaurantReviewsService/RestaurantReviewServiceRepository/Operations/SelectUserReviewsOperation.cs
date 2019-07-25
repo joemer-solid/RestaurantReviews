@@ -20,7 +20,7 @@ namespace RestaurantReviewService.Operations
                 new UserReviewsFilterParams<Restaurant>
                 {
                     Criteria = restaurant,
-                    FilterType = UserReviewsRepository<Restaurant>.SelectAllFilterType.ByUserId
+                    FilterType = UserReviewsRepository<Restaurant>.SelectAllFilterType.ByRestaurantId
                 });
 
 

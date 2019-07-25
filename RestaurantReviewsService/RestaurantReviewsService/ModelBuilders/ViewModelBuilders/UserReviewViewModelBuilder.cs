@@ -5,6 +5,14 @@ namespace RestaurantReviewsService.ModelBuilders.ViewModelBuilders
 {
     public sealed class UserReviewViewModelBuilder : IModelBuilder<UserReviewViewModel, UserReviewDM>
     {
+        private IModelBuilder<UserViewModel, UserDM> _userViewModelBuilder;
+
+        public UserReviewViewModelBuilder()
+        {
+            _userViewModelBuilder = new UserViewModelBuilder();
+        }
+
+
         UserReviewViewModel IModelBuilder<UserReviewViewModel, UserReviewDM>.Build(UserReviewDM p)
         {
             return new UserReviewViewModel
@@ -17,7 +25,8 @@ namespace RestaurantReviewsService.ModelBuilders.ViewModelBuilders
                 RestaurantIdRef = p.RestaurantIdRef,
                 Title = p.Title,
                 UserIdRef = p.UserIdRef,
-                RatingsRepresentation = TranslateRatingsLevelForRepresentation(p.RatingsLevel)
+                RatingsRepresentation = TranslateRatingsLevelForRepresentation(p.RatingsLevel),
+                UserViewModel = BuildUserViewModel(p.User)
             };
         }
 
@@ -33,6 +42,12 @@ namespace RestaurantReviewsService.ModelBuilders.ViewModelBuilders
             }
 
             return string.Join(string.Empty, ratingsLevelDescriptionBuffer);
+        }
+
+
+        private UserViewModel BuildUserViewModel(UserDM userDM)
+        {
+            return _userViewModelBuilder.Build(userDM);
         }
     }
 }

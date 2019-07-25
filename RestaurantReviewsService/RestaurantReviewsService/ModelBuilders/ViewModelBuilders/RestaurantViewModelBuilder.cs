@@ -15,7 +15,6 @@ namespace RestaurantReviewsService.ModelBuilders.ViewModelBuilders
     {
         private IModelBuilder<UserReviewViewModel, UserReviewDM> _userReviewViewModelBuilder;
 
-
         public RestaurantViewModelBuilder()
         {
             _userReviewViewModelBuilder = new UserReviewViewModelBuilder();

@@ -20,9 +20,10 @@ namespace RestaurantReviewsService
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);           
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             RegisterDependencies(new ServiceCollection());
+            
             SetDatabaseTarget();
         }
 

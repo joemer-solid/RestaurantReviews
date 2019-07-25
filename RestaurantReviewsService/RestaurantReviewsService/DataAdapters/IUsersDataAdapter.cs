@@ -8,5 +8,7 @@ namespace RestaurantReviewsService.DataAdapters
         IList<UserDM> GetAllUsers();
 
         UserDM GetUserByName(string firstName, string lastName);
+
+        UserDM GetUserById(int userId);
     }
 }

@@ -10,6 +10,7 @@ using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
 namespace RestaurantReviewsService.Controllers
 {
+    [RoutePrefix("api/RestaurantReview")]
     public class RestaurantReviewController : ApiController
     {
         private IRestaurantPortService _restaurantPortService;
@@ -28,10 +29,11 @@ namespace RestaurantReviewsService.Controllers
             return _restaurantPortService.GetAllRestaurants();
         }
 
-        [HttpPost()]
-        public IList<RestaurantViewModel> ReviewsForCity(string cityName)
+        [Route("{name}")]
+        // example api/RetaurantReview/Twin Peaks/
+        public IList<RestaurantViewModel> GetReviewsForCity(string name)
         {
-            return _restaurantPortService.GetRestaurantReviewsByCity(cityName);
+            return _restaurantPortService.GetRestaurantReviewsByCity(name);
         }
 
         //// POST api/<controller>

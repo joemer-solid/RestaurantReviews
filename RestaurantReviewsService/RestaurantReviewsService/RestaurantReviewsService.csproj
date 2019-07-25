@@ -184,11 +184,13 @@
     <Compile Include="ModelBuilders\IModelBuilder.cs" />
     <Compile Include="ModelBuilders\ViewModelBuilders\RestaurantViewModelBuilder.cs" />
     <Compile Include="ModelBuilders\ViewModelBuilders\UserReviewViewModelBuilder.cs" />
+    <Compile Include="ModelBuilders\ViewModelBuilders\UserViewModelBuilder.cs" />
     <Compile Include="PortServices\IRestaurantPortService.cs" />
     <Compile Include="PortServices\RestaurantPortService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\RestaurantViewModel.cs" />
     <Compile Include="ViewModels\UserReviewViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

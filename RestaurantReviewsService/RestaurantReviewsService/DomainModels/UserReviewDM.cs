@@ -22,5 +22,7 @@ namespace RestaurantReviewsService.DomainModels
         public int RatingsLevel { get; set; }
 
         public string RatingsDescription { get; set; }
+
+        public UserDM User { get; set; }
     }
 }

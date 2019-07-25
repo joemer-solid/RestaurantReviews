@@ -14,9 +14,9 @@ namespace RestaurantReviewService.EntityModelBuilders
             const int REST_ID_REF = 2;
             const int TITLE = 3;
             const int COMMENTS = 4;
-            const int RATINGS_REF = 5;
-            const int RATINGS_LVL = 6;
-            const int RATINGS_DESC = 7;
+            const int RATINGS_REF = 6;
+            const int RATINGS_LVL = 7;
+            const int RATINGS_DESC = 8;
             
 
             if (p != null && p.HasRows)
