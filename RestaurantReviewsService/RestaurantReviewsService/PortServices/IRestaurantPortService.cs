@@ -10,6 +10,8 @@ namespace RestaurantReviewsService.PortServices
     public interface IRestaurantPortService
     {
         IList<RestaurantViewModel> GetAllRestaurants();
+
+        IList<RestaurantViewModel> GetRestaurantReviewsByCity(string cityName);
     }
 }
 

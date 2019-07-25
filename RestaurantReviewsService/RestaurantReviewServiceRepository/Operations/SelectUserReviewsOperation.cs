@@ -16,7 +16,15 @@ namespace RestaurantReviewService.Operations
     {
         public IList<UserReview> SelectByRestaurant(Restaurant restaurant)
         {
-            throw new System.NotImplementedException();
+            ISqlLiteDbRepository usersReviewRepository = new UserReviewsRepository<Restaurant>(
+                new UserReviewsFilterParams<Restaurant>
+                {
+                    Criteria = restaurant,
+                    FilterType = UserReviewsRepository<Restaurant>.SelectAllFilterType.ByUserId
+                });
+
+
+            return (IList<UserReview>)usersReviewRepository.SelectAll();
         }
 
         public IList<UserReview> SelectByUser(User user)

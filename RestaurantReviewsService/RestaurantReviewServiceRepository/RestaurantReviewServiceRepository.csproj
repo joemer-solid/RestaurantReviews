@@ -55,6 +55,7 @@
     <Compile Include="Commands\Builder\Restaurants_SelectAllCommand.cs" />
     <Compile Include="Commands\Builder\Restaurant_AddCommand.cs" />
     <Compile Include="Commands\Builder\SqlLiteCommandBuilderBase.cs" />
+    <Compile Include="Commands\Builder\UserReviews_SelectAllForRestaurantId.cs" />
     <Compile Include="Commands\Builder\UserReviews_SelectAllForUserId.cs" />
     <Compile Include="Commands\Builder\Users_SelectAllCommand.cs" />
     <Compile Include="Concrete\RestaurantsRepository.cs" />

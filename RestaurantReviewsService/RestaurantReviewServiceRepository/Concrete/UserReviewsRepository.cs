@@ -2,6 +2,7 @@
 using RestaurantReviewService.Commands.Builder;
 using RestaurantReviewService.Entities;
 using RestaurantReviewService.EntityModelBuilders;
+using RestaurantReviewServiceRepository.Commands.Builder;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -70,15 +71,30 @@ namespace RestaurantReviewService.Concrete
                     IEntityModelBuilder<IList<UserReview>, SQLiteDataReader> userReviewsDataEntitiesBuilder = new UserReviewsDataEntitiesBuilder();
 
                     results = userReviewsDataEntitiesBuilder.Build(reader);
-                }
-
-                return results;
+                }               
             }
-            else
+            else if(_userReviewFilterParams.FilterType == SelectAllFilterType.ByRestaurantId)
             {
-                throw new NotImplementedException();
+                Restaurant restaurant = (Restaurant)Convert.ChangeType(_userReviewFilterParams.Criteria, typeof(Restaurant));
+
+                using (SqlLiteDbConnection connection = new SqlLiteDbConnection())
+                {
+                    ISqlLiteCommandBuilder<SQLiteCommand> selectAllReviewsForRestaurantIdCommandBuilder =
+                        new UserReviews_SelectAllForRestaurantId(connection, restaurant.Id);
+
+                    SQLiteCommand command = selectAllReviewsForRestaurantIdCommandBuilder.Build();
+
+                    SQLiteDataReader reader = command.ExecuteReader();
+
+                    IEntityModelBuilder<IList<UserReview>, SQLiteDataReader> userReviewsDataEntitiesBuilder = new UserReviewsDataEntitiesBuilder();
+
+                    results = userReviewsDataEntitiesBuilder.Build(reader);
+                }                
             }
+
+            return results;
         }
+
 
         EntityModelBase IDbRepository<EntityModelBase, object>.SelectById(object id)
         {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
+using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
 namespace RestaurantReviewsService.Controllers
 {
@@ -19,27 +19,34 @@ namespace RestaurantReviewsService.Controllers
             _restaurantPortService = new RestaurantPortService();
         }
 
-              
+
 
         // GET api/<controller>/5
+        [System.Web.Http.HttpGet()]
         public IList<RestaurantViewModel> GetAllRestaurants()
         {
             return _restaurantPortService.GetAllRestaurants();
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        [HttpPost()]
+        public IList<RestaurantViewModel> ReviewsForCity(string cityName)
         {
+            return _restaurantPortService.GetRestaurantReviewsByCity(cityName);
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //// POST api/<controller>
+        //public void Post([FromBody]string value)
+        //{
+        //}
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }
+        //// PUT api/<controller>/5
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
+
+        //// DELETE api/<controller>/5
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

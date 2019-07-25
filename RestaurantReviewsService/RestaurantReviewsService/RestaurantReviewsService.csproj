@@ -183,6 +183,7 @@
     <Compile Include="ModelBuilders\DomainModelBuilders\UserReviewDomainModelBuilder.cs" />
     <Compile Include="ModelBuilders\IModelBuilder.cs" />
     <Compile Include="ModelBuilders\ViewModelBuilders\RestaurantViewModelBuilder.cs" />
+    <Compile Include="ModelBuilders\ViewModelBuilders\UserReviewViewModelBuilder.cs" />
     <Compile Include="PortServices\IRestaurantPortService.cs" />
     <Compile Include="PortServices\RestaurantPortService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

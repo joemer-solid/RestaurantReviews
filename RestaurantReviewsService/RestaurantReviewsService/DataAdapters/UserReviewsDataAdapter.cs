@@ -24,17 +24,29 @@ namespace RestaurantReviewsService.DataAdapters
 
         IList<UserReviewDM> IUserReviewsDataAdapter.GetUserReviewsForRestaurant(RestaurantDM restaurantDm)
         {
-            throw new NotImplementedException();
+            ISelectUserReviewsOperation selectUserReviewsOperation = new SelectUserReviewsOperation();
+
+            IList<UserReview> operationResults = selectUserReviewsOperation.SelectByRestaurant(
+                new Restaurant() { Id = restaurantDm.Id });
+
+            return BuildUserReviewDomainModelList(operationResults);
         }
 
         IList<UserReviewDM> IUserReviewsDataAdapter.GetUserReviewsForUser(UserDM userDm)
-        {
-            IModelBuilder<UserReviewDM, UserReview> modelBuilder = new UserReviewDomainModelBuilder();
-            ISelectUserReviewsOperation selectUserReviewsOperation = new SelectUserReviewsOperation();
-            IList<UserReviewDM> results = new List<UserReviewDM>();
+        {            
+            ISelectUserReviewsOperation selectUserReviewsOperation = new SelectUserReviewsOperation();            
 
             IList<UserReview> operationResults = selectUserReviewsOperation.SelectByUser(
                 new User() { Id = userDm.Id });
+
+            return BuildUserReviewDomainModelList(operationResults);           
+        }
+
+
+        private IList<UserReviewDM> BuildUserReviewDomainModelList(IList<UserReview> operationResults)
+        {
+            IList<UserReviewDM> results = new List<UserReviewDM>();
+            IModelBuilder<UserReviewDM, UserReview> modelBuilder = new UserReviewDomainModelBuilder();
 
             if (operationResults != null && operationResults.Count > 0)
             {

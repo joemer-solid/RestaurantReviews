@@ -21,6 +21,8 @@ namespace RestaurantReviewsService.ViewModels
 
         public int RatingsLevel { get; set; }
 
-        public string RatingsDescription { get; set; }
+        public string RatingsDescription { get; set; } 
+
+        public string RatingsRepresentation { get; set; }
     }
 }

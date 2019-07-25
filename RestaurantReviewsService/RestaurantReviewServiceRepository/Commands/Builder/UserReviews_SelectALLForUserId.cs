@@ -28,7 +28,7 @@ namespace RestaurantReviewService.Commands.Builder
             StringBuilder builder = new StringBuilder();
 
             builder.Append("SELECT UR.* , R.Id AS RatingsIdRef, R.Level, R.Description FROM UserReviews UR INNER JOIN Ratings R ON UR.RatingsRef = R.Id ");
-            builder.AppendFormat("WHERE UserIdREF = {0};", _userIdParam);
+            builder.AppendFormat("WHERE UR.UserIdREF = {0};", _userIdParam);
 
             return builder.ToString();
         }
