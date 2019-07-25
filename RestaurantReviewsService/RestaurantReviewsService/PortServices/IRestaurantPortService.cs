@@ -10,6 +10,8 @@ namespace RestaurantReviewsService.PortServices
         IList<RestaurantViewModel> GetRestaurantReviewsByCity(string cityName);
 
         void PostRestaurantReview(UserReviewViewModel userReviewViewModel);
+
+        void AddRestaurant(RestaurantViewModel restaurantViewModel);
     }
 }
 

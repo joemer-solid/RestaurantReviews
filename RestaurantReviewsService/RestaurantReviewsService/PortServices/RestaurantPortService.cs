@@ -1,14 +1,11 @@
-﻿using RestaurantReviewsService.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.Extensions.DependencyInjection;
-using RestaurantReviewsService.DataAdapters;
+﻿using RestaurantReviewsService.DataAdapters;
 using RestaurantReviewsService.DomainModels;
 using RestaurantReviewsService.ModelBuilders;
-using RestaurantReviewsService.ModelBuilders.ViewModelBuilders;
 using RestaurantReviewsService.ModelBuilders.DomainModelBuilders;
+using RestaurantReviewsService.ModelBuilders.ViewModelBuilders;
+using RestaurantReviewsService.ViewModels;
+using System;
+using System.Collections.Generic;
 
 namespace RestaurantReviewsService.PortServices
 {
@@ -31,6 +28,7 @@ namespace RestaurantReviewsService.PortServices
         {
             _restaurantsDataAdapter = restaurantsDataAdapter;
         }
+
 
         #endregion
 
@@ -95,6 +93,15 @@ namespace RestaurantReviewsService.PortServices
                 new UserReviewDomainModelBuilder();
 
             _userReviewsDataAdapter.AddNewUserReview(userReviewDomainModelBuilder.Build(userReviewViewModel));
+        }
+
+
+        public void AddRestaurant(RestaurantViewModel restaurantViewModel)
+        {
+            IModelBuilder<RestaurantDM, RestaurantViewModel> restaurantDomainModelBuilder =
+                new RestaurantDomainModelBuilder();
+
+            _restaurantsDataAdapter.AddNewRestaurant(restaurantDomainModelBuilder.Build(restaurantViewModel));
         }
     }
 }

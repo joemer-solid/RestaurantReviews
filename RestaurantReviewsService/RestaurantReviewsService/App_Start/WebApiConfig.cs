@@ -25,6 +25,12 @@ namespace RestaurantReviewsService
                 routeTemplate: "api/{controller}/{name}",
                 new {name = RouteParameter.Optional }
                 );
+
+            config.Routes.MapHttpRoute(
+                name: "PostNewRestaurantAction",
+                routeTemplate: "RestaurantReview/{action}/{data}",
+                new {data = RouteParameter.Optional }
+                );
         }
     }
 }
