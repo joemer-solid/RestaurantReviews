@@ -1,13 +1,13 @@
-﻿using RestaurantReviewServiceRepository.Abstract;
-using RestaurantReviewServiceRepository.Commands.Builder;
-using RestaurantReviewServiceRepository.Entities;
-using RestaurantReviewServiceRepository.EntityModelBuilders;
+﻿using RestaurantReviewService.Abstract;
+using RestaurantReviewService.Commands.Builder;
+using RestaurantReviewService.Entities;
+using RestaurantReviewService.EntityModelBuilders;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 
-namespace RestaurantReviewServiceRepository.Concrete
+namespace RestaurantReviewService.Concrete
 {
     public sealed class UserReviewsRepository<T> : ISqlLiteDbRepository
     {

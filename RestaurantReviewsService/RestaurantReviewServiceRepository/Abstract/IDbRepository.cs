@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 
 
-namespace RestaurantReviewServiceRepository.Abstract
+namespace RestaurantReviewService.Abstract
 {
     public interface IDbRepository<T1, T2> where T1 : class
     {

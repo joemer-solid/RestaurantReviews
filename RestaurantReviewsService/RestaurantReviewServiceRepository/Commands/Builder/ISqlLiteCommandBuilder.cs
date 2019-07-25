@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantReviewServiceRepository.Commands.Builder
+namespace RestaurantReviewService.Commands.Builder
 {
     public interface ISqlLiteCommandBuilder<T>
     {

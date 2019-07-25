@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantReviewServiceRepository.Commands.Builder
+namespace RestaurantReviewService.Commands.Builder
 {
     public abstract class SqlLiteCommandBuilderBase : SqlLiteDbConnection, ISqlLiteCommandBuilder<SQLiteCommand>
     {

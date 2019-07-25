@@ -8,9 +8,13 @@ using RestaurantReviewsService.DomainModels;
 namespace RestaurantReviewUnitTests
 {
     [TestClass]
-    public class UserReviewsDataAdapterTests
+    public class UserReviewsDataAdapterTests : UnitTestBase
     {
         private const string _testCategory = "DataAdapterTests";
+
+        public UserReviewsDataAdapterTests() : base()
+        {
+        }
 
         [TestMethod]
         [TestCategory(_testCategory)]

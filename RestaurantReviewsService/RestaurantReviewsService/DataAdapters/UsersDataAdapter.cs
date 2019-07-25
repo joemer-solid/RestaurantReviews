@@ -1,5 +1,5 @@
-﻿using RestaurantReviewServiceRepository.Entities;
-using RestaurantReviewServiceRepository.Operations;
+﻿using RestaurantReviewService.Entities;
+using RestaurantReviewService.Operations;
 using RestaurantReviewsService.DomainModels;
 using RestaurantReviewsService.ModelBuilders;
 using RestaurantReviewsService.ModelBuilders.DataEntityModelBuilders;

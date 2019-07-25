@@ -1,4 +1,4 @@
-﻿using RestaurantReviewServiceRepository.Entities;
+﻿using RestaurantReviewService.Entities;
 using RestaurantReviewsService.DomainModels;
 
 namespace RestaurantReviewsService.ModelBuilders.DomainModelBuilders

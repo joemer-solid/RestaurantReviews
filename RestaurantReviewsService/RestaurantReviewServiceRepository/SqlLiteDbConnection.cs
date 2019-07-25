@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SQLite;
+using RestaurantReviewServiceRepository;
 
-namespace RestaurantReviewServiceRepository
+namespace RestaurantReviewService
 {
     public class SqlLiteDbConnection : DbConnectionBase, IDisposable
     {
@@ -153,7 +154,8 @@ namespace RestaurantReviewServiceRepository
             SQLiteConnectionStringBuilder connectionStringBuilder = new SQLiteConnectionStringBuilder();
 
 
-            const string TARGET_DB = "C:\\Development\\RestaurantReviews\\Data\\RestaurantReviews.db";
+            string TARGET_DB = Resources.SqlLiteDataBase;
+            //const string TARGET_DB = "C:\\Development\\RestaurantReviews\\Data\\RestaurantReviews.db";
             connectionStringBuilder.DataSource = TARGET_DB;
             connectionStringBuilder.Version = Convert.ToInt32(DB_VERSION);
             connectionStringBuilder.PageSize = PAGE_SIZE;

@@ -1,10 +1,10 @@
-﻿using RestaurantReviewServiceRepository.Abstract;
-using RestaurantReviewServiceRepository.Concrete;
-using RestaurantReviewServiceRepository.Entities;
-using RestaurantReviewServiceRepository.Strategy;
+﻿using RestaurantReviewService.Abstract;
+using RestaurantReviewService.Concrete;
+using RestaurantReviewService.Entities;
+using RestaurantReviewService.Strategy;
 using System;
 
-namespace RestaurantReviewServiceRepository.Operations
+namespace RestaurantReviewService.Operations
 {
     public interface IAddNewRestaurantsOperation : IRepositoryOperation<int, NewRestAddRepositoryOperationParams> { }
 

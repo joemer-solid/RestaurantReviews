@@ -1,7 +1,7 @@
 ﻿using System.Data.SQLite;
 using System.Text;
 
-namespace RestaurantReviewServiceRepository.Commands.Builder
+namespace RestaurantReviewService.Commands.Builder
 {
     public sealed class Restaurants_SelectAllCommand : SqlLiteCommandBuilderBase
     {

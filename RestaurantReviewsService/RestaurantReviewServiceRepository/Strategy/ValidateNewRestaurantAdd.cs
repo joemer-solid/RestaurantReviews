@@ -1,10 +1,10 @@
-﻿using RestaurantReviewServiceRepository.Concrete;
-using RestaurantReviewServiceRepository.Entities;
-using RestaurantReviewServiceRepository.Operations;
+﻿using RestaurantReviewService.Concrete;
+using RestaurantReviewService.Entities;
+using RestaurantReviewService.Operations;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RestaurantReviewServiceRepository.Strategy
+namespace RestaurantReviewService.Strategy
 {
     public interface IValidateNewRestaurantAdd : IRepositoryStrategy<RestaurantAddValidationParams, bool> { }
 

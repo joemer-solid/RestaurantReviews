@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace RestaurantReviewService.Entities
+namespace RestaurantReviewsService.ViewModels
 {
-    public sealed class Restaurant : EntityModelBase
+    public class RestaurantViewModel
     {
         public int Id { get; set; }
 
@@ -18,10 +17,10 @@ namespace RestaurantReviewService.Entities
 
         public string State { get; set; }
 
-        public int StateIdRef { get; set; }
+        public int StateId { get; set; }
 
         public string Overview { get; set; }
 
-     
+        public IList<UserReviewViewModel> UserReviews { get; set; }
     }
 }

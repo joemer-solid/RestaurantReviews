@@ -1,8 +1,8 @@
-﻿using RestaurantReviewServiceRepository.Entities;
+﻿using RestaurantReviewService.Entities;
 using System.Collections.Generic;
 using System.Data.SQLite;
 
-namespace RestaurantReviewServiceRepository.EntityModelBuilders
+namespace RestaurantReviewService.EntityModelBuilders
 {
     public sealed class UsersDataEntitiesBuilder : IEntityModelBuilder<IList<User>, SQLiteDataReader>
     {

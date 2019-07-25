@@ -1,4 +1,4 @@
-﻿namespace RestaurantReviewServiceRepository.Entities
+﻿namespace RestaurantReviewService.Entities
 {
     public sealed class User : EntityModelBase
     {

@@ -1,9 +1,9 @@
-﻿using RestaurantReviewServiceRepository.Abstract;
-using RestaurantReviewServiceRepository.Concrete;
-using RestaurantReviewServiceRepository.Entities;
+﻿using RestaurantReviewService.Abstract;
+using RestaurantReviewService.Concrete;
+using RestaurantReviewService.Entities;
 using System.Collections.Generic;
 
-namespace RestaurantReviewServiceRepository.Operations
+namespace RestaurantReviewService.Operations
 {
     public interface ISelectAllUsersOperation : IRepositoryOperation<IList<User>, UsersRepository> { }
 

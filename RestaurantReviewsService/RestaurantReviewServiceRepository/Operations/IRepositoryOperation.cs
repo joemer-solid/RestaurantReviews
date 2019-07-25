@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantReviewServiceRepository.Operations
+namespace RestaurantReviewService.Operations
 {
     public interface IRepositoryOperation<T,P>
     {

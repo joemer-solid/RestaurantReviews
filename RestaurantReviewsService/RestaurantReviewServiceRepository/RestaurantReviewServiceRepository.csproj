@@ -76,6 +76,7 @@
     <Compile Include="Operations\SelectAllUsersOperation.cs" />
     <Compile Include="Operations\SelectUserReviewsOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.cs" />
     <Compile Include="SqlLiteDbConnection.cs" />
     <Compile Include="Strategy\IRepositoryStrategy.cs" />
     <Compile Include="Strategy\ValidateNewRestaurantAdd.cs" />

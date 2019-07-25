@@ -1,4 +1,4 @@
-﻿namespace RestaurantReviewServiceRepository.Strategy
+﻿namespace RestaurantReviewService.Strategy
 {
     public interface IRepositoryStrategy<P,T>
     {

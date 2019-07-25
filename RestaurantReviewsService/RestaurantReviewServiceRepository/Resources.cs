@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantReviewService.EntityModelBuilders
+namespace RestaurantReviewServiceRepository
 {
-    public interface IEntityModelBuilder<T, P>
+    public class Resources
     {
-        T Build(P p);
+        public static string SqlLiteDataBase { get; set; }
     }
 }

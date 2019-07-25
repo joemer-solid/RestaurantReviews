@@ -1,8 +1,8 @@
-﻿using RestaurantReviewServiceRepository.Entities;
+﻿using RestaurantReviewService.Entities;
 using System.Data.SQLite;
 using System.Text;
 
-namespace RestaurantReviewServiceRepository.Commands.Builder
+namespace RestaurantReviewService.Commands.Builder
 {
     public sealed class Restaurant_AddCommand : SqlLiteCommandBuilderBase
     {
