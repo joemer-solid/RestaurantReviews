@@ -8,3 +8,22 @@ Post a restaurant that is not in the database
 Post a review for a restaurant
 Get of a list of reviews by user
 Delete a review
+
+
+https://restaurantreviewsservice20190725031904.azurewebsites.net/api/restaurantreview/getreviewsforcity/?name=Plum
+https://restaurantreviewsservice20190725031904.azurewebsites.net/api/restaurantreview/getreviewsforcity/?name=Butler
+api/restaurantreview/getreviewsforcity/?name=Butler
+https://localhost:44362/api/RestaurantReview/getreviewsforcity/?name=Twin%20Peaks
+https://localhost:44362/api/restaurantreview/PostNewReview/?RatingsRef=3&amp; UserIdRef=2&amp; Title=Out in the boonies but good Italian food&amp; Comment=Nick grows his own tomatoes on his adjoining farm&amp; RestaurantIdRef=1
+https://localhost:44362/api/RestaurantReview/GetReviewsForCity/?name=Plum
+
+***********test code for postman
+POST /post?RatingsRef=3&amp; UserIdRef=2&amp; Title=Out in the boonies but good Italian food&amp; Comment=Nick grows his own tomatoes on his adjoining farm&amp; RestaurantIdRef=1 HTTP/1.1
+Host: postman-echo.com
+Content-Type: application/json
+cache-control: no-cache
+Postman-Token: 39973aca-7ad1-43d7-a74a-c9606844bcb5
+
+{
+	"method": "POST"
+}
