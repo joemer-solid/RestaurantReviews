@@ -2,11 +2,13 @@
 using RestaurantReviewsService.ViewModels;
 using System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using RoutePrefixAttribute = System.Web.Http.RoutePrefixAttribute;
 
 namespace RestaurantReviewsService.Controllers
 {
     [RoutePrefix("api/RestaurantReview")]
+    [EnableCors(origins: "http://localhost:5421/", headers: "*", methods: "*")]
     public class RestaurantReviewController : ApiController
     {
         private IRestaurantPortService _restaurantPortService;

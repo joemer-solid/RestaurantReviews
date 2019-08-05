@@ -9,6 +9,9 @@ namespace RestaurantReviewsService
     {
         public static void Register(HttpConfiguration config)
         {
+            // enable CORS support (Cross-Origin Resource Sharing) for the service
+            config.EnableCors();
+
             // Web API configuration and services
 
             // Web API routes
